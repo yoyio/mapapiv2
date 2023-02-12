@@ -10,14 +10,17 @@ let connection = mysql.createConnection({
   });
 
 app.get('/', function(req, res){
+    res.header('Access-Control-Allow-Origin', '*')
     res.json("hello world");
 });
 
 app.get('/all', function(req, res){
+    res.header('Access-Control-Allow-Origin', '*')
   res.send(data);
 });
 
 app.get('/:id', function(req, res){
+    res.header('Access-Control-Allow-Origin', '*')
     res.send(data.all[req.params.id-1]);
 })
 
