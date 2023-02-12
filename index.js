@@ -9,18 +9,27 @@ let connection = mysql.createConnection({
     database: 'map'
   });
 
+app.use((req, res, next)=> {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Credentials', false)
+  next()
+})
+
 app.get('/', function(req, res){
     res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Credentials', false)
     res.json("hello world");
 });
 
 app.get('/all', function(req, res){
     res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Credentials', false)
   res.send(data);
 });
 
 app.get('/:id', function(req, res){
     res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Credentials', false)
     res.send(data.all[req.params.id-1]);
 })
 
